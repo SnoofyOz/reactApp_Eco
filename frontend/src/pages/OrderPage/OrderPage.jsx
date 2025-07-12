@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const OrderPage = () => {
-  return (
-    <div>OrderPage</div>
-  )
+function OrderPage() {
+  return <div>Order Page</div>;
 }
 
-export default OrderPage
+export default OrderPage;
