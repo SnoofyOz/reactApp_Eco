@@ -11,7 +11,7 @@ services:
     environment:
       - NODE_ENV=development
       - PORT=3001
-      - MONGO_DB=1
+      - MONGO_DB=mongodb+srv://lolemxl:tgqopdc22bQ1acFN@flr-shop.yzxwlqb.mongodb.net/flrshop?retryWrites=true&w=majority&appName=Flr-Shop
     restart: unless-stopped
     networks:
       - eco-network
