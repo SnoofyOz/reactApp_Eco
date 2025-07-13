@@ -9,7 +9,7 @@ import { EyeFilled, EyeInvisibleFilled } from '@ant-design/icons';
 const SignUpPage = () => {
   const { isShowPassword, setIsShowPassword } = useState(false)
   return (
-    <div style={{ background: 'rgba(0, 0, 0, 0.53', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ background: 'rgba(0, 0, 0, 0.53', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
       <div style={{ width: '800px', height: '445px', borderRadius: '10px', background: '#efefef', display: 'flex' }}>
         <WrapperContainerLeft>
           <h1>Hello</h1>
