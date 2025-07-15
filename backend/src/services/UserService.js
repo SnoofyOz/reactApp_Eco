@@ -95,7 +95,41 @@ const deleteUser = (id) => {
             }
             resolve({
                 status: 'OKELA',
-                message: 'User deleted successfully'
+                message: 'User deleted successfully',
+                data: deletedUser
+            });
+        } catch (e) {
+            reject(e);
+        }
+    });
+}
+
+const getUserById = (id) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const user = await User.findById(id);
+            if (!user) {
+                return reject(new Error('User not found'));
+            }
+            resolve({
+                status: 'OKELA',
+                message: 'User retrieved successfully',
+                data: user
+            });
+        } catch (e) {
+            reject(e);
+        }
+    });
+}
+
+const getAllUsers = () => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const users = await User.find();
+            resolve({
+                status: 'OKELA',
+                message: 'All users retrieved successfully',
+                data: users
             });
         } catch (e) {
             reject(e);
@@ -107,5 +141,7 @@ module.exports = {
     createUser
     , loginUser
     , updateUser
+    , getAllUsers
     , deleteUser
+    , getUserById
 };

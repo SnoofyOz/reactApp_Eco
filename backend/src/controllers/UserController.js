@@ -97,9 +97,46 @@ const deleteUser = async (req, res) => {
     }
 }
 
+const getUserById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        if (!id) {
+            return res.status(400).json({
+                message: 'User ID is required'
+            });
+        }
+
+        // Call the UserService to get user by ID
+        const result = await UserService.getUserById(id);
+        return res.status(200).json(result);
+
+    } catch (e) {
+        return res.status(404).json({
+            message: 'Error fetching user',
+            error: e.message
+        });
+    }
+}
+
+const getAllUsers = async (req, res) => {
+    try {
+        // Call the UserService to get all users
+        const result = await UserService.getAllUsers();
+        return res.status(200).json(result);
+    } catch (e) {
+        return res.status(404).json({
+            message: 'Error fetching users',
+            error: e.message
+        });
+    }
+}
+
+
 module.exports =  {
     createUser
     , loginUser
     , updateUser
+    , getUserById
     , deleteUser
+    , getAllUsers
 };
